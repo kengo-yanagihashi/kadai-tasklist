@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 <h1>id: <%= @task.id %> のタスク詳細ページ</h1>
+=======
+<h1>id: <%= @task.id %> のタスクの詳細ページ</h1>
+>>>>>>> 626c04fb92e22178b989e2b22401fb4cc446b439
 
 <p><%= @task.status %></p>
 <p><%= @task.content %></p>
 
 <%= link_to '一覧に戻る', tasks_path %>
 <%= link_to 'タスクを編集する', edit_task_path %>
+<<<<<<< HEAD
 <%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+=======
+<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除しますか' } %>
+>>>>>>> 626c04fb92e22178b989e2b22401fb4cc446b439
