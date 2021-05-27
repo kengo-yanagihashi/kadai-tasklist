@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in
   before_action :set_task, only: [:show, :edit, :update]
-  before_action :correct_user, except: [:index, :new, :create]
+  before_action :correct_user, only: [:destroy]
   
   def index
     if logged_in?
@@ -20,10 +20,10 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     
     if @task.save
-      flash[:success] = 'Taskが正常に作成されました。'
+      flash[:success] = 'タスクが正常に作成されました。'
       redirect_to @task
     else
-      flash.now[:danger] = 'Taksが作成されませんでした'
+      flash.now[:danger] = 'タスクが作成されませんでした'
       render :new
     end
   end
@@ -33,10 +33,10 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      flash[:success] = 'Taskは正常に更新されました'
+      flash[:success] = 'タスクは正常に更新されました'
       redirect_to @task
     else
-      flash.now[:danger] = 'Taskは更新されませんでした'
+      flash.now[:danger] = 'タスクは更新されませんでした'
       render :edit
     end
   end
