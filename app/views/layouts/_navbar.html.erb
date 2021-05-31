@@ -9,16 +9,15 @@
     <ul class="navbar-nav">
       <% if logged_in? %>
         <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li class="dropdown-item"><%= link_to 'タスク一覧', tasks_path %></li>
-          <li class="dropdown-divider"></li>
-          <li class="dropdown-item"><%= link_to 'ログアウトする', logout_path, method: :delete %></li>
-          <li class="dropdown-divider"></li>
-          <li class="dropdown-item"><%= link_to '投稿する', new_task_path %></li>
-          
-        </ul>
-          </li>
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li class="dropdown-item"><%= link_to 'タスク一覧', tasks_path %></li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item"><%= link_to '投稿する', new_task_path %></li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item"><%= link_to 'ログアウトする', logout_path, method: :delete %></li>
+          </ul>
+        </li>
       <% else %>
           <li class="nav-item"><%= link_to 'サインイン', signup_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
